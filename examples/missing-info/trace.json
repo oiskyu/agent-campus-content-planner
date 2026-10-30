@@ -1,0 +1,14 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "春季上新"
+      },
+      "result_summary": "找到 M01",
+      "next_action": "finish",
+      "decision": "检索成功，素材 M01（短视频，制作耗时 1.0 小时）。但预算未提供，无法比较费用是否超支，因此不能保存草稿。\n\n请补充预算（模拟单位）。收到后我会生成脚本并估价，再判断是否在 24 小时内、预算内保存。"
+    }
+  ]
+}

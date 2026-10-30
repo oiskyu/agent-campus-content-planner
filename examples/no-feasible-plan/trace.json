@@ -1,0 +1,60 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "会员日"
+      },
+      "result_summary": "找到 M03",
+      "next_action": "generate_script",
+      "decision": "检索到 1 条素材（M03）。先生成标准方案脚本。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M03"
+        ],
+        "plan_id": "standard"
+      },
+      "result_summary": "脚本已生成",
+      "next_action": "estimate_cost",
+      "decision": ""
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "result_summary": "合计 12",
+      "next_action": "generate_script",
+      "decision": "标准方案合计 12，超出预算 5，改用轻量方案。"
+    },
+    {
+      "step": 4,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M03"
+        ],
+        "plan_id": "lite"
+      },
+      "result_summary": "脚本已生成",
+      "next_action": "estimate_cost",
+      "decision": ""
+    },
+    {
+      "step": 5,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "lite"
+      },
+      "result_summary": "合计 8",
+      "next_action": "finish",
+      "decision": "轻量方案合计 8，仍超出预算 5，停止，不保存。\n\n未保存方案。检索到 1 条“会员日”素材（M03：会员专享9折、双倍积分、仅限会员用户）；standard 估价合计 12、耗时 6 小时，lite 估价合计 8、耗时 3 小时，两者耗时都在 24 小时内，但费用均超出预算 5。最便宜方案为 lite，合计 8，缺口为预算差 3；如需推进，需上调预算或缩减素材/剪辑范围。"
+    }
+  ]
+}

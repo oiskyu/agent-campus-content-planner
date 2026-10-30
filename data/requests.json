@@ -1,0 +1,44 @@
+[
+  {
+    "case_name": "normal",
+    "theme": "春季上新",
+    "budget": 20,
+    "deadline_hours": 24
+  },
+  {
+    "case_name": "missing-info",
+    "theme": "春季上新",
+    "budget": null,
+    "deadline_hours": 24
+  },
+  {
+    "case_name": "tool-failure",
+    "theme": "618大促",
+    "budget": 20,
+    "deadline_hours": 24
+  },
+  {
+    "case_name": "budget-overrun",
+    "theme": "春季上新",
+    "budget": 10,
+    "deadline_hours": 24
+  },
+  {
+    "case_name": "no-feasible-plan",
+    "theme": "会员日",
+    "budget": 5,
+    "deadline_hours": 24
+  },
+  {
+    "case_name": "duplicate",
+    "theme": "春季上新",
+    "budget": 10,
+    "deadline_hours": 24
+  },
+  {
+    "case_name": "max-steps",
+    "theme": "周年庆",
+    "budget": 20,
+    "deadline_hours": 24
+  }
+]

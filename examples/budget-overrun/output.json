@@ -1,0 +1,273 @@
+{
+  "status": "completed",
+  "task_plan": {
+    "theme": "春季上新",
+    "budget": 10,
+    "deadline_hours": 24,
+    "selected_plan_id": "lite",
+    "material_ids": [
+      "M01"
+    ],
+    "script": "春季新品折扣力度8折。活动周期7天。",
+    "plan_steps": [
+      "检索素材",
+      "生成脚本",
+      "估价",
+      "生成脚本",
+      "估价",
+      "保存草稿"
+    ]
+  },
+  "step_records": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "春季上新"
+      },
+      "status": "success",
+      "result_summary": "找到 M01",
+      "decision": "我先检索该主题素材。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M01"
+        ],
+        "plan_id": "standard"
+      },
+      "status": "success",
+      "result_summary": "脚本已生成",
+      "decision": "检索成功，先按标准方案生成脚本。"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "status": "success",
+      "result_summary": "合计 12",
+      "decision": ""
+    },
+    {
+      "step": 4,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M01"
+        ],
+        "plan_id": "lite"
+      },
+      "status": "success",
+      "result_summary": "脚本已生成",
+      "decision": "标准方案合计 12，超出预算 10，改用轻量方案。"
+    },
+    {
+      "step": 5,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "lite"
+      },
+      "status": "success",
+      "result_summary": "合计 8",
+      "decision": ""
+    },
+    {
+      "step": 6,
+      "tool": "save_plan",
+      "arguments": {
+        "theme": "春季上新",
+        "plan_id": "lite",
+        "budget": 10,
+        "deadline_hours": 24
+      },
+      "status": "success",
+      "result_summary": "合计 8",
+      "decision": "lite 合计 8、耗时 3 小时，均在限制内，保存草稿。"
+    }
+  ],
+  "tool_results": [
+    {
+      "ok": true,
+      "code": "search_materials",
+      "message": "检索完成",
+      "data": {
+        "materials": [
+          {
+            "id": "M01",
+            "facts": [
+              "春季新品折扣力度8折",
+              "活动周期7天",
+              "线下门店同步参与"
+            ],
+            "platform": "短视频",
+            "hours": 1.0
+          }
+        ]
+      },
+      "error": null,
+      "meta": {
+        "tool": "search_materials",
+        "call_id": "7f3e903f",
+        "latency_ms": 1,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "检索成功后，把返回的 material_ids 传给 generate_script。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "generate_script",
+      "message": "脚本已生成",
+      "data": {
+        "plan_id": "standard",
+        "material_ids": [
+          "M01"
+        ],
+        "script": "春季新品折扣力度8折。活动周期7天。线下门店同步参与。"
+      },
+      "error": null,
+      "meta": {
+        "tool": "generate_script",
+        "call_id": "c6c50570",
+        "latency_ms": 0,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "脚本已生成。下一步对同一个 plan_id 调用 estimate_cost。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "estimate_cost",
+      "message": "估价完成",
+      "data": {
+        "plan_id": "standard",
+        "items": {
+          "素材使用": 3,
+          "脚本": 4,
+          "剪辑": 5
+        },
+        "total": 12,
+        "hours": 6
+      },
+      "error": null,
+      "meta": {
+        "tool": "estimate_cost",
+        "call_id": "d99ed15d",
+        "latency_ms": 1,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "请比较 data.total 与预算、data.hours 与截止时间，再决定保存或改选 lite。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "generate_script",
+      "message": "脚本已生成",
+      "data": {
+        "plan_id": "lite",
+        "material_ids": [
+          "M01"
+        ],
+        "script": "春季新品折扣力度8折。活动周期7天。"
+      },
+      "error": null,
+      "meta": {
+        "tool": "generate_script",
+        "call_id": "5e56efa3",
+        "latency_ms": 1,
+        "call_count": 2,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "脚本已生成。下一步对同一个 plan_id 调用 estimate_cost。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "estimate_cost",
+      "message": "估价完成",
+      "data": {
+        "plan_id": "lite",
+        "items": {
+          "素材使用": 3,
+          "脚本": 2,
+          "剪辑": 3
+        },
+        "total": 8,
+        "hours": 3
+      },
+      "error": null,
+      "meta": {
+        "tool": "estimate_cost",
+        "call_id": "2cbbe51e",
+        "latency_ms": 1,
+        "call_count": 2,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "请比较 data.total 与预算、data.hours 与截止时间，再决定保存或改选 lite。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "save_plan",
+      "message": "草稿已存在",
+      "data": {
+        "draft_id": "draft-002",
+        "plan_id": "lite",
+        "theme": "春季上新",
+        "material_ids": [
+          "M01"
+        ],
+        "script": "春季新品折扣力度8折。活动周期7天。",
+        "items": {
+          "素材使用": 3,
+          "脚本": 2,
+          "剪辑": 3
+        },
+        "total": 8,
+        "hours": 3
+      },
+      "error": null,
+      "meta": {
+        "tool": "save_plan",
+        "call_id": "ded9c3ae",
+        "latency_ms": 2,
+        "call_count": 1,
+        "max_calls": 3,
+        "timeout_ms": 2000,
+        "permission": "write_draft",
+        "hint": "返回的是已有草稿。不要再次保存，不要新建第二份。"
+      }
+    }
+  ],
+  "total_cost": 8,
+  "saved_plan": {
+    "draft_id": "draft-002",
+    "plan_id": "lite",
+    "theme": "春季上新",
+    "material_ids": [
+      "M01"
+    ],
+    "script": "春季新品折扣力度8折。活动周期7天。",
+    "items": {
+      "素材使用": 3,
+      "脚本": 2,
+      "剪辑": 3
+    },
+    "total": 8,
+    "hours": 3
+  },
+  "incomplete_reason": null,
+  "gap": null
+}

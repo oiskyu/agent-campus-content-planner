@@ -1,0 +1,50 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "春季上新"
+      },
+      "result_summary": "找到 M01",
+      "next_action": "generate_script",
+      "decision": "检索成功，素材 M01。接下来生成 standard 方案脚本。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M01"
+        ],
+        "plan_id": "standard"
+      },
+      "result_summary": "脚本已生成",
+      "next_action": "estimate_cost",
+      "decision": ""
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "result_summary": "合计 12",
+      "next_action": "save_plan",
+      "decision": "standard 合计 12、耗时 6 小时，均在预算 20 与 24 小时内，保存草稿。"
+    },
+    {
+      "step": 4,
+      "tool": "save_plan",
+      "arguments": {
+        "theme": "春季上新",
+        "plan_id": "standard",
+        "budget": 20,
+        "deadline_hours": 24
+      },
+      "result_summary": "合计 12",
+      "next_action": "finish",
+      "decision": "已保存草稿（draft-001，standard 方案，素材 M01），合计费用 12、耗时 6 小时，在预算 20 与截止 24 小时内。该草稿为可保存方案，未投放、未发布。"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# pytest 运行记录
+# 命令: python -m pytest -v
+# Python: Python 3.12.5
+
+============================= test session starts =============================
+platform win32 -- Python 3.12.5, pytest-9.2.0, pluggy-1.7.0 -- D:\anaconda\python.exe
+cachedir: .pytest_cache
+rootdir: D:\PycharmProjects\xiaoyin\pythonProject
+configfile: pytest.ini
+plugins: anyio-4.15.1, langsmith-0.14.14
+collecting ... collected 27 items
+
+tests/test_graph.py::test_router_does_not_encode_budget_choices PASSED   [  3%]
+tests/test_graph.py::test_normal_saves_standard_plan PASSED              [  7%]
+tests/test_graph.py::test_missing_budget_and_deadline_do_not_save PASSED [ 11%]
+tests/test_graph.py::test_tool_failure_keeps_earlier_success PASSED      [ 14%]
+tests/test_graph.py::test_budget_overrun_switches_to_lite PASSED         [ 18%]
+tests/test_graph.py::test_no_feasible_plan_reports_gap PASSED            [ 22%]
+tests/test_graph.py::test_duplicate_run_returns_same_draft PASSED        [ 25%]
+tests/test_graph.py::test_max_steps_stops_with_partial_success PASSED    [ 29%]
+tests/test_graph.py::test_rerunning_same_thread_without_resume_keeps_checkpoint_history PASSED [ 33%]
+tests/test_graph.py::test_resume_retries_failed_estimate_and_saves PASSED [ 37%]
+tests/test_model_client.py::test_default_mode_is_mock PASSED             [ 40%]
+tests/test_model_client.py::test_cli_model_overrides_env PASSED          [ 44%]
+tests/test_model_client.py::test_api_without_key_explains_optional_boundary PASSED [ 48%]
+tests/test_model_client.py::test_api_client_builds_openai_payload_without_live_call PASSED [ 51%]
+tests/test_tool_contract.py::test_each_tool_has_name_description_and_json_schema PASSED [ 55%]
+tests/test_tool_contract.py::test_dispatch_returns_unified_envelope_with_hint PASSED [ 59%]
+tests/test_tool_contract.py::test_invalid_arguments_tell_model_which_fields_to_fix PASSED [ 62%]
+tests/test_tool_contract.py::test_unknown_and_publish_tools_are_denied PASSED [ 66%]
+tests/test_tool_contract.py::test_max_calls_stops_repeated_use PASSED    [ 70%]
+tests/test_tool_contract.py::test_confirmation_gate_blocks_until_confirmed PASSED [ 74%]
+tests/test_tool_contract.py::test_successful_search_includes_data_and_meta PASSED [ 77%]
+tests/test_tools.py::test_quotes_sum_to_reference_totals PASSED          [ 81%]
+tests/test_tools.py::test_search_returns_spring_materials_and_misses_unknown_theme PASSED [ 85%]
+tests/test_tools.py::test_script_requires_retrieval_and_lite_keeps_two_facts PASSED [ 88%]
+tests/test_tools.py::test_estimate_fails_once_then_returns_sum PASSED    [ 92%]
+tests/test_tools.py::test_save_rejects_missing_budget_over_budget_and_duplicate PASSED [ 96%]
+tests/test_tools.py::test_save_rejects_deadline_shorter_than_plan PASSED [100%]
+
+============================= 27 passed in 2.54s ==============================

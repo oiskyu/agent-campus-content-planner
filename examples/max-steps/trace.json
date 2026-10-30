@@ -1,0 +1,27 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "周年庆"
+      },
+      "result_summary": "找到 M04",
+      "next_action": "generate_script",
+      "decision": "检索到 1 条素材（M04）。先按标准方案生成脚本。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M04"
+        ],
+        "plan_id": "standard"
+      },
+      "result_summary": "脚本已生成",
+      "next_action": "finish",
+      "decision": "工具调用已达到上限，停止执行。"
+    }
+  ]
+}

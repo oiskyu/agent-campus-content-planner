@@ -1,0 +1,73 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "春季上新"
+      },
+      "result_summary": "找到 M01",
+      "next_action": "generate_script",
+      "decision": "检索成功，先按标准方案生成脚本。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M01"
+        ],
+        "plan_id": "standard"
+      },
+      "result_summary": "脚本已生成",
+      "next_action": "estimate_cost",
+      "decision": ""
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "result_summary": "合计 12",
+      "next_action": "generate_script",
+      "decision": "标准方案合计 12，超出预算 10，改用轻量方案。"
+    },
+    {
+      "step": 4,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M01"
+        ],
+        "plan_id": "lite"
+      },
+      "result_summary": "脚本已生成",
+      "next_action": "estimate_cost",
+      "decision": ""
+    },
+    {
+      "step": 5,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "lite"
+      },
+      "result_summary": "合计 8",
+      "next_action": "save_plan",
+      "decision": "lite 合计 8、耗时 3 小时，均在限制内，保存草稿。"
+    },
+    {
+      "step": 6,
+      "tool": "save_plan",
+      "arguments": {
+        "theme": "春季上新",
+        "plan_id": "lite",
+        "budget": 10,
+        "deadline_hours": 24
+      },
+      "result_summary": "合计 8",
+      "next_action": "finish",
+      "decision": "已保存为草稿（draft-002），选用 lite 方案：合计费用 8（预算 10 内），耗时 3 小时（截止 24 小时内）。standard 方案合计 12 超预算，已弃用。素材仅 M01，脚本只用了检索到的事实（8 折、7 天周期）；草稿未发布。"
+    }
+  ]
+}

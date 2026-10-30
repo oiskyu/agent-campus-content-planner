@@ -1,0 +1,212 @@
+{
+  "status": "incomplete",
+  "task_plan": {
+    "theme": "会员日",
+    "budget": 5,
+    "deadline_hours": 24,
+    "selected_plan_id": null,
+    "material_ids": [
+      "M03"
+    ],
+    "script": "会员专享9折。双倍积分。",
+    "plan_steps": [
+      "检索素材",
+      "生成脚本",
+      "估价",
+      "生成脚本",
+      "估价"
+    ]
+  },
+  "step_records": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "会员日"
+      },
+      "status": "success",
+      "result_summary": "找到 M03",
+      "decision": "我先检索“会员日”主题素材。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M03"
+        ],
+        "plan_id": "standard"
+      },
+      "status": "success",
+      "result_summary": "脚本已生成",
+      "decision": "检索到 1 条素材（M03）。先生成标准方案脚本。"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "status": "success",
+      "result_summary": "合计 12",
+      "decision": ""
+    },
+    {
+      "step": 4,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M03"
+        ],
+        "plan_id": "lite"
+      },
+      "status": "success",
+      "result_summary": "脚本已生成",
+      "decision": "标准方案合计 12，超出预算 5，改用轻量方案。"
+    },
+    {
+      "step": 5,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "lite"
+      },
+      "status": "success",
+      "result_summary": "合计 8",
+      "decision": ""
+    }
+  ],
+  "tool_results": [
+    {
+      "ok": true,
+      "code": "search_materials",
+      "message": "检索完成",
+      "data": {
+        "materials": [
+          {
+            "id": "M03",
+            "facts": [
+              "会员专享9折",
+              "双倍积分",
+              "仅限会员用户"
+            ],
+            "platform": "图文",
+            "hours": 0.5
+          }
+        ]
+      },
+      "error": null,
+      "meta": {
+        "tool": "search_materials",
+        "call_id": "71d26b2f",
+        "latency_ms": 2,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "检索成功后，把返回的 material_ids 传给 generate_script。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "generate_script",
+      "message": "脚本已生成",
+      "data": {
+        "plan_id": "standard",
+        "material_ids": [
+          "M03"
+        ],
+        "script": "会员专享9折。双倍积分。仅限会员用户。"
+      },
+      "error": null,
+      "meta": {
+        "tool": "generate_script",
+        "call_id": "7f54b109",
+        "latency_ms": 2,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "脚本已生成。下一步对同一个 plan_id 调用 estimate_cost。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "estimate_cost",
+      "message": "估价完成",
+      "data": {
+        "plan_id": "standard",
+        "items": {
+          "素材使用": 3,
+          "脚本": 4,
+          "剪辑": 5
+        },
+        "total": 12,
+        "hours": 6
+      },
+      "error": null,
+      "meta": {
+        "tool": "estimate_cost",
+        "call_id": "860ce919",
+        "latency_ms": 1,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "请比较 data.total 与预算、data.hours 与截止时间，再决定保存或改选 lite。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "generate_script",
+      "message": "脚本已生成",
+      "data": {
+        "plan_id": "lite",
+        "material_ids": [
+          "M03"
+        ],
+        "script": "会员专享9折。双倍积分。"
+      },
+      "error": null,
+      "meta": {
+        "tool": "generate_script",
+        "call_id": "4c61ccb2",
+        "latency_ms": 1,
+        "call_count": 2,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "脚本已生成。下一步对同一个 plan_id 调用 estimate_cost。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "estimate_cost",
+      "message": "估价完成",
+      "data": {
+        "plan_id": "lite",
+        "items": {
+          "素材使用": 3,
+          "脚本": 2,
+          "剪辑": 3
+        },
+        "total": 8,
+        "hours": 3
+      },
+      "error": null,
+      "meta": {
+        "tool": "estimate_cost",
+        "call_id": "dab4a0f7",
+        "latency_ms": 1,
+        "call_count": 2,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "请比较 data.total 与预算、data.hours 与截止时间，再决定保存或改选 lite。"
+      }
+    }
+  ],
+  "total_cost": 8,
+  "saved_plan": null,
+  "incomplete_reason": "no_feasible_plan",
+  "gap": 3.0
+}

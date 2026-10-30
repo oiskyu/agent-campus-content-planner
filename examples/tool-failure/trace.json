@@ -1,0 +1,60 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "618大促"
+      },
+      "result_summary": "找到 M02",
+      "next_action": "generate_script",
+      "decision": "检索成功，素材 M02。先按标准方案生成脚本。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M02"
+        ],
+        "plan_id": "standard"
+      },
+      "result_summary": "脚本已生成",
+      "next_action": "estimate_cost",
+      "decision": ""
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "result_summary": "成本估算服务暂时不可用",
+      "next_action": "estimate_cost",
+      "decision": "估价失败，按规则对同一方案再试一次。"
+    },
+    {
+      "step": 4,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "result_summary": "合计 12",
+      "next_action": "save_plan",
+      "decision": "standard 合计 12、耗时 6 小时，均在预算 20 和截止 24 小时内，保存草稿。"
+    },
+    {
+      "step": 5,
+      "tool": "save_plan",
+      "arguments": {
+        "theme": "618大促",
+        "plan_id": "standard",
+        "budget": 20,
+        "deadline_hours": 24
+      },
+      "result_summary": "合计 12",
+      "next_action": "finish",
+      "decision": "已保存草稿（draft-003，standard 方案，素材 M02），合计费用 12、耗时 6 小时，在预算 20 与截止 24 小时内。该草稿为可保存方案，未投放、未发布。"
+    }
+  ]
+}

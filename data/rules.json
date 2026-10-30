@@ -1,0 +1,43 @@
+{
+  "max_tool_calls": 8,
+  "constraints": [
+    "缺少budget或者deadline_hours，禁止保存方案",
+    "方案total_cost > budget，禁止保存",
+    "方案hours > deadline_hours，禁止保存",
+    "generate_script只能使用已经检索成功的素材facts",
+    "必须先成功estimate_cost，才允许save_plan",
+    "save_plan幂等键：theme + plan_id + budget；重复保存返回已有草稿",
+    "工具调用达到max_tool_calls，任务标记为incomplete"
+  ],
+  "failure_inject": {
+    "estimate_cost_first_fail": true
+  },
+  "idempotency_key": ["theme", "plan_id", "budget"],
+  "plan_ids": ["standard", "lite"],
+  "tools": {
+    "search_materials": {
+      "permission": "read",
+      "timeout_ms": 2000,
+      "max_calls": 4,
+      "require_confirmation": false
+    },
+    "generate_script": {
+      "permission": "read",
+      "timeout_ms": 2000,
+      "max_calls": 4,
+      "require_confirmation": false
+    },
+    "estimate_cost": {
+      "permission": "read",
+      "timeout_ms": 2000,
+      "max_calls": 4,
+      "require_confirmation": false
+    },
+    "save_plan": {
+      "permission": "write_draft",
+      "timeout_ms": 2000,
+      "max_calls": 3,
+      "require_confirmation": false
+    }
+  }
+}

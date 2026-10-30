@@ -1,0 +1,231 @@
+{
+  "status": "completed",
+  "task_plan": {
+    "theme": "618大促",
+    "budget": 20,
+    "deadline_hours": 24,
+    "selected_plan_id": "standard",
+    "material_ids": [
+      "M02"
+    ],
+    "script": "满300减50。预售时间6.1。直播间专属赠品。",
+    "plan_steps": [
+      "检索素材",
+      "生成脚本",
+      "估价",
+      "估价",
+      "保存草稿"
+    ]
+  },
+  "step_records": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "618大促"
+      },
+      "status": "success",
+      "result_summary": "找到 M02",
+      "decision": "我先检索该主题素材。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M02"
+        ],
+        "plan_id": "standard"
+      },
+      "status": "success",
+      "result_summary": "脚本已生成",
+      "decision": "检索成功，素材 M02。先按标准方案生成脚本。"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "status": "failed",
+      "result_summary": "成本估算服务暂时不可用",
+      "decision": ""
+    },
+    {
+      "step": 4,
+      "tool": "estimate_cost",
+      "arguments": {
+        "plan_id": "standard"
+      },
+      "status": "success",
+      "result_summary": "合计 12",
+      "decision": "估价失败，按规则对同一方案再试一次。"
+    },
+    {
+      "step": 5,
+      "tool": "save_plan",
+      "arguments": {
+        "theme": "618大促",
+        "plan_id": "standard",
+        "budget": 20,
+        "deadline_hours": 24
+      },
+      "status": "success",
+      "result_summary": "合计 12",
+      "decision": "standard 合计 12、耗时 6 小时，均在预算 20 和截止 24 小时内，保存草稿。"
+    }
+  ],
+  "tool_results": [
+    {
+      "ok": true,
+      "code": "search_materials",
+      "message": "检索完成",
+      "data": {
+        "materials": [
+          {
+            "id": "M02",
+            "facts": [
+              "满300减50",
+              "预售时间6.1",
+              "直播间专属赠品"
+            ],
+            "platform": "短视频",
+            "hours": 1.0
+          }
+        ]
+      },
+      "error": null,
+      "meta": {
+        "tool": "search_materials",
+        "call_id": "cf076096",
+        "latency_ms": 3,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "检索成功后，把返回的 material_ids 传给 generate_script。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "generate_script",
+      "message": "脚本已生成",
+      "data": {
+        "plan_id": "standard",
+        "material_ids": [
+          "M02"
+        ],
+        "script": "满300减50。预售时间6.1。直播间专属赠品。"
+      },
+      "error": null,
+      "meta": {
+        "tool": "generate_script",
+        "call_id": "871d5ccd",
+        "latency_ms": 2,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "脚本已生成。下一步对同一个 plan_id 调用 estimate_cost。"
+      }
+    },
+    {
+      "ok": false,
+      "code": "estimate_cost",
+      "message": "成本估算服务暂时不可用",
+      "data": null,
+      "error": {
+        "code": "estimate_cost",
+        "message": "成本估算服务暂时不可用",
+        "hint": "估价暂时失败。可对同一 plan_id 再调用一次 estimate_cost，不要把本步记为成功。"
+      },
+      "meta": {
+        "tool": "estimate_cost",
+        "call_id": "d9fdcae8",
+        "latency_ms": 3,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "估价暂时失败。可对同一 plan_id 再调用一次 estimate_cost，不要把本步记为成功。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "estimate_cost",
+      "message": "估价完成",
+      "data": {
+        "plan_id": "standard",
+        "items": {
+          "素材使用": 3,
+          "脚本": 4,
+          "剪辑": 5
+        },
+        "total": 12,
+        "hours": 6
+      },
+      "error": null,
+      "meta": {
+        "tool": "estimate_cost",
+        "call_id": "49a9e585",
+        "latency_ms": 2,
+        "call_count": 2,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "请比较 data.total 与预算、data.hours 与截止时间，再决定保存或改选 lite。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "save_plan",
+      "message": "草稿已存在",
+      "data": {
+        "draft_id": "draft-003",
+        "plan_id": "standard",
+        "theme": "618大促",
+        "material_ids": [
+          "M02"
+        ],
+        "script": "满300减50。预售时间6.1。直播间专属赠品。",
+        "items": {
+          "素材使用": 3,
+          "脚本": 4,
+          "剪辑": 5
+        },
+        "total": 12,
+        "hours": 6
+      },
+      "error": null,
+      "meta": {
+        "tool": "save_plan",
+        "call_id": "589c9b02",
+        "latency_ms": 3,
+        "call_count": 1,
+        "max_calls": 3,
+        "timeout_ms": 2000,
+        "permission": "write_draft",
+        "hint": "返回的是已有草稿。不要再次保存，不要新建第二份。"
+      }
+    }
+  ],
+  "total_cost": 12,
+  "saved_plan": {
+    "draft_id": "draft-003",
+    "plan_id": "standard",
+    "theme": "618大促",
+    "material_ids": [
+      "M02"
+    ],
+    "script": "满300减50。预售时间6.1。直播间专属赠品。",
+    "items": {
+      "素材使用": 3,
+      "脚本": 4,
+      "剪辑": 5
+    },
+    "total": 12,
+    "hours": 6
+  },
+  "incomplete_reason": null,
+  "gap": null
+}

@@ -1,0 +1,64 @@
+{
+  "status": "incomplete",
+  "task_plan": {
+    "theme": "春季上新",
+    "budget": null,
+    "deadline_hours": 24,
+    "selected_plan_id": null,
+    "material_ids": [
+      "M01"
+    ],
+    "script": null,
+    "plan_steps": [
+      "检索素材"
+    ]
+  },
+  "step_records": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "春季上新"
+      },
+      "status": "success",
+      "result_summary": "找到 M01",
+      "decision": "缺少预算，无法判断方案是否可行，也无法保存草稿。先按主题检索素材。"
+    }
+  ],
+  "tool_results": [
+    {
+      "ok": true,
+      "code": "search_materials",
+      "message": "检索完成",
+      "data": {
+        "materials": [
+          {
+            "id": "M01",
+            "facts": [
+              "春季新品折扣力度8折",
+              "活动周期7天",
+              "线下门店同步参与"
+            ],
+            "platform": "短视频",
+            "hours": 1.0
+          }
+        ]
+      },
+      "error": null,
+      "meta": {
+        "tool": "search_materials",
+        "call_id": "c5c68c61",
+        "latency_ms": 1,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "检索成功后，把返回的 material_ids 传给 generate_script。"
+      }
+    }
+  ],
+  "total_cost": null,
+  "saved_plan": null,
+  "incomplete_reason": "missing_budget",
+  "gap": null
+}

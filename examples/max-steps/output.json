@@ -1,0 +1,101 @@
+{
+  "status": "incomplete",
+  "task_plan": {
+    "theme": "周年庆",
+    "budget": 20,
+    "deadline_hours": 24,
+    "selected_plan_id": null,
+    "material_ids": [
+      "M04"
+    ],
+    "script": "全场满减。抽奖活动。到店礼。",
+    "plan_steps": [
+      "检索素材",
+      "生成脚本"
+    ]
+  },
+  "step_records": [
+    {
+      "step": 1,
+      "tool": "search_materials",
+      "arguments": {
+        "theme": "周年庆"
+      },
+      "status": "success",
+      "result_summary": "找到 M04",
+      "decision": "我先检索该主题素材。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "arguments": {
+        "material_ids": [
+          "M04"
+        ],
+        "plan_id": "standard"
+      },
+      "status": "success",
+      "result_summary": "脚本已生成",
+      "decision": "检索到 1 条素材（M04）。先按标准方案生成脚本。"
+    }
+  ],
+  "tool_results": [
+    {
+      "ok": true,
+      "code": "search_materials",
+      "message": "检索完成",
+      "data": {
+        "materials": [
+          {
+            "id": "M04",
+            "facts": [
+              "全场满减",
+              "抽奖活动",
+              "到店礼"
+            ],
+            "platform": "短视频",
+            "hours": 1.0
+          }
+        ]
+      },
+      "error": null,
+      "meta": {
+        "tool": "search_materials",
+        "call_id": "6a8840e2",
+        "latency_ms": 1,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "检索成功后，把返回的 material_ids 传给 generate_script。"
+      }
+    },
+    {
+      "ok": true,
+      "code": "generate_script",
+      "message": "脚本已生成",
+      "data": {
+        "plan_id": "standard",
+        "material_ids": [
+          "M04"
+        ],
+        "script": "全场满减。抽奖活动。到店礼。"
+      },
+      "error": null,
+      "meta": {
+        "tool": "generate_script",
+        "call_id": "28be33d7",
+        "latency_ms": 1,
+        "call_count": 1,
+        "max_calls": 4,
+        "timeout_ms": 2000,
+        "permission": "read",
+        "hint": "脚本已生成。下一步对同一个 plan_id 调用 estimate_cost。"
+      }
+    }
+  ],
+  "total_cost": null,
+  "saved_plan": null,
+  "incomplete_reason": "max_steps",
+  "gap": null
+}
